@@ -19,11 +19,11 @@ def create_database():
         print(f"Error while connecting to MySQL: {e}")
 
     finally:
-        if 'cursor' in locals() and cursor is not None:
+        if connection.is_connected():
             cursor.close()
-        if 'connection' in locals() and connection.is_connected():
             connection.close()
 
 if __name__ == "__main__":
 
     create_database()
+
